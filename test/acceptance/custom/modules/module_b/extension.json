@@ -1,0 +1,8 @@
+{
+    "extension_id": "module_b",
+    "dependencies": [],
+    "entry-point": {
+        "module": "module_b.py",
+        "exec": "execute"
+    }
+}

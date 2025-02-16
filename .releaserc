@@ -1,0 +1,71 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    [
+      "semantic-release-replace-plugin",
+      {
+        "replacements": [
+          {
+            "files": ["package.json"],
+            "from": "\"version\": \".*\",",
+            "to": "\"version\": \"${nextRelease.version}\",",
+            "results": [
+              {
+                "file": "package.json",
+                "hasChanged": true,
+                "numMatches": 1,
+                "numReplacements": 1
+              }
+            ],
+            "countMatches": true
+          },
+          {
+            "files": ["pyproject.toml"],
+            "from": "version = \".*\"  # updated-by-sem-rel",
+            "to": "version = \"${nextRelease.version}\"  # updated-by-sem-rel",
+            "results": [
+              {
+                "file": "pyproject.toml",
+                "hasChanged": true,
+                "numMatches": 1,
+                "numReplacements": 1
+              }
+            ],
+            "countMatches": true
+          }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "uvx --from build pyproject-build"
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md",
+        "changelogTitle": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n"
+      }
+    ],
+    [
+      
+        "@semantic-release/github",
+        {
+            "assets": [
+                { "path": "dist/sbe.eggstensibility-*-py3-none-any.whl", "label": "sbe.eggstensibility ${nextRelease.version} wheel" },
+            ]
+        }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+        "assets": ["package.json", "pyproject.toml", "CHANGELOG.md"]
+      }
+    ]
+  ]
+}

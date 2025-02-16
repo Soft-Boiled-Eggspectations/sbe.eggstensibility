@@ -1,0 +1,8 @@
+{
+    "extension_id": "module_a",
+    "dependencies": ["module_b"],
+    "entry-point": {
+        "module": "module_a.py",
+        "exec": "execute_seq"
+    }
+}

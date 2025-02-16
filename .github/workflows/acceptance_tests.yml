@@ -1,0 +1,19 @@
+name: Run Acceptance Tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  acceptance-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install the latest version of uv and set the python version
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.10"
+      - name: Sync UV Project
+        run: uv sync
+      - name: Run Acceptance Tests
+        run: pytest
