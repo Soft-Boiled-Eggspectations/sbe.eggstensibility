@@ -40,7 +40,8 @@ well.
 or any package management tool of your choosing.
 
 ```powershell
-wget 
+wget https://github.com/Soft-Boiled-Eggspectations/sbe.eggstensibility/releases/download/v1.0.0/sbe.eggstensibility-1.0.0-py3-none-any.whl
+pip install sbe.eggstensibility-1.0.0-py3-none-any.whl
 ```
 
 For the time being, it is only
