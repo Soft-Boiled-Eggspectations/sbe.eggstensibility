@@ -9,7 +9,10 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["sbe.eggstensibility"]
+include = [
+    "sbe.eggstensibility",
+    "sbe.eggstensibility._internal",
+]
 
 [tool.mypy]
 packages = ["sbe.eggstensibility"]
