@@ -40,7 +40,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "uvx --from build pyproject-build"
+        "prepareCmd": "uvx --from build pyproject-build --outdir ."
       }
     ],
     "@semantic-release/release-notes-generator",
@@ -56,7 +56,7 @@
         "@semantic-release/github",
         {
             "assets": [
-                { "path": "dist/sbe.eggstensibility-*-py3-none-any.whl", "label": "sbe.eggstensibility ${nextRelease.version} wheel" },
+                { "path": "./sbe.eggstensibility-*-py3-none-any.whl", "label": "sbe.eggstensibility ${nextRelease.version} wheel" },
             ]
         }
     ],
