@@ -56,7 +56,7 @@
         "@semantic-release/github",
         {
             "assets": [
-                { "path": "./sbe.eggstensibility-*-py3-none-any.whl", "label": "sbe.eggstensibility ${nextRelease.version} wheel" },
+                { "path": "./sbe_eggstensibility-*-py3-none-any.whl", "label": "sbe.eggstensibility ${nextRelease.version} wheel" },
             ]
         }
     ],
